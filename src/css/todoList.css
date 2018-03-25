@@ -1,0 +1,14 @@
+.Todo-Table {
+  margin: 30px;
+}
+
+.Todo-Create {
+  width: 500px;
+  height: 550px;
+  margin: auto;
+  margin-top: 5%;
+  padding-top: 5%;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #E3F2FD;
+}

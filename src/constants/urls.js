@@ -1,0 +1,5 @@
+export const TODO = '/todo'
+export const REGISTER = '/register'
+export const LOGIN = '/login'
+export const TODO_SUMMARY = '/todosummary'
+export const USER_INFO = ''
