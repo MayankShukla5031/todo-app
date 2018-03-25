@@ -6,4 +6,5 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Step to run the app:
 
 1- npm install
+
 2- npm run start (it will run a dev server on port 3000)
