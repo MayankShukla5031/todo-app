@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import RegisterUser from '../components/registerUser'
 import * as userActions from '../actions/userActions'
@@ -25,6 +26,9 @@ class RegisterContainer extends React.Component {
   }
 
   render() {
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/" />
+    }
     return (
       <RegisterUser
         {...this.state}
@@ -37,7 +41,8 @@ class RegisterContainer extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = store => ({
+  isLoggedIn: store.userInfoReducer.isLoggedIn,
 })
 
 const mapDispatchToProps = () => ({
@@ -47,6 +52,7 @@ const mapDispatchToProps = () => ({
 })
 
 RegisterContainer.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
   handleRegisterUser: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
