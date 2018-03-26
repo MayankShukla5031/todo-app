@@ -4,8 +4,10 @@ import { REGISTER, LOGIN } from '../constants/urls'
 
 export const handleRegisterUser = (data, callback) => {
   apiCalls.postCall(REGISTER, data)
-    .then(() => {
-      callback()
+    .then(res => {
+      if (res && res.status === 200) {
+        callback()
+      }
     })
 }
 
