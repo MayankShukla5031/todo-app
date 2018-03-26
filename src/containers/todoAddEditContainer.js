@@ -54,7 +54,6 @@ class TodoAddEditContainer extends React.Component {
   }
 
   render() {
-    console.log('isCreationView', this.props.match.params.id, !this.props.match.params.id)
     return (
       <TodoAddEdit
         {...this.state}

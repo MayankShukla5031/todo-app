@@ -67,7 +67,7 @@ const TodoAddEdit = ({
     <RaisedButton
       primary
       className="Button"
-      label="Create"
+      label={restProps.isCreationView? 'Create' : 'Update'}
       onClick={handleCreateTodo}
     />
   </div>
