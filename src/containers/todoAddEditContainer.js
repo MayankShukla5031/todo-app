@@ -7,7 +7,8 @@ import * as todoActions from '../actions/todoActions'
 class TodoAddEditContainer extends React.Component {
   state = {
     name: '',
-    status: '',
+    status: 'Pending',
+    priority: '',
     created_on: new Date(),
     completion_date: new Date(),
   }
@@ -31,6 +32,8 @@ class TodoAddEditContainer extends React.Component {
 
   handleStatusChange = (e, index, value) => this.setState({ status: value })
 
+  handlePriorityChange = (e, index, value) => this.setState({ priority: value })
+
   handleCreationDateChange = (e, date) => this.setState({ created_on: date })
 
   handleCompletionDateChange = (e, date) => this.setState({ completion_date: date })
@@ -51,11 +54,14 @@ class TodoAddEditContainer extends React.Component {
   }
 
   render() {
+    console.log('isCreationView', this.props.match.params.id, !this.props.match.params.id)
     return (
       <TodoAddEdit
         {...this.state}
+        isCreationView={!this.props.match.params.id}
         handleNameChange={this.handleNameChange}
         handleStatusChange={this.handleStatusChange}
+        handlePriorityChange={this.handlePriorityChange}
         handleCreationDateChange={this.handleCreationDateChange}
         handleCompletionDateChange={this.handleCompletionDateChange}
         handleCreateTodo={this.handleCreateTodo}

@@ -10,6 +10,7 @@ import TextField from 'material-ui/TextField'
 const TodoAddEdit = ({
   handleNameChange,
   handleStatusChange,
+  handlePriorityChange,
   handleCreationDateChange,
   handleCompletionDateChange,
   handleCreateTodo,
@@ -27,6 +28,7 @@ const TodoAddEdit = ({
         onChange={handleNameChange}
       />
       <DatePicker
+        disabled={restProps.isCreationView}
         floatingLabelText="Creation Date *"
         mode="landscape"
         minDate={new Date()}
@@ -41,6 +43,7 @@ const TodoAddEdit = ({
         onChange={handleCompletionDateChange}
       />
       <SelectField
+        disabled={restProps.isCreationView}
         style={{ textAlign: 'left' }}
         floatingLabelText="Status *"
         value={restProps.status}
@@ -49,6 +52,16 @@ const TodoAddEdit = ({
         <MenuItem value="Pending" primaryText="Pending" />
         <MenuItem value="In Progress" primaryText="In Progress" />
         <MenuItem value="Done" primaryText="Done" />
+      </SelectField>
+      <SelectField
+        style={{ textAlign: 'left' }}
+        floatingLabelText="Priority *"
+        value={restProps.priority}
+        onChange={handlePriorityChange}
+      >
+        <MenuItem value="Top" primaryText="Top" />
+        <MenuItem value="Medium" primaryText="Medium" />
+        <MenuItem value="Low" primaryText="Low" />
       </SelectField>
     </div>
     <RaisedButton
@@ -62,6 +75,7 @@ const TodoAddEdit = ({
 
 TodoAddEdit.propTypes = {
   name: PropTypes.string.isRequired,
+  priority: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   created_on: PropTypes.instanceOf(Date).isRequired,
   completion_date: PropTypes.instanceOf(Date).isRequired,
@@ -69,6 +83,7 @@ TodoAddEdit.propTypes = {
   handleStatusChange: PropTypes.func.isRequired,
   handleCreationDateChange: PropTypes.func.isRequired,
   handleCompletionDateChange: PropTypes.func.isRequired,
+  handlePriorityChange: PropTypes.func.isRequired,
   handleCreateTodo: PropTypes.func.isRequired,
 }
 

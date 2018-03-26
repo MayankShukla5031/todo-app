@@ -26,6 +26,7 @@ const TodoList = ({ todoList, handleTodoDelete }) => {
         <TableHeaderColumn isKey hidden dataField="todo_id">Todo Id</TableHeaderColumn>
         <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
         <TableHeaderColumn dataField="created_on">Created on</TableHeaderColumn>
+        <TableHeaderColumn dataField="priority" dataSort>Priority</TableHeaderColumn>
         <TableHeaderColumn dataField="status">Status</TableHeaderColumn>
         <TableHeaderColumn dataField="completion_date">Done by</TableHeaderColumn>
         <TableHeaderColumn dataField="completion_date" dataFormat={actionCellFormat}>Action</TableHeaderColumn>
