@@ -16,6 +16,8 @@ import LoginContainer from './containers/loginContainer'
 import RegisterContainer from './containers/registerContainer'
 import ResetPasswordContainer from './containers/resetPasswordContainer'
 
+import TempContainer from './containers/TempContainer'
+
 import registerServiceWorker from './registerServiceWorker'
 import './css/index.css'
 
@@ -34,6 +36,7 @@ ReactDOM.render(
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Switch>
+            <Route exact path="/temp" component={TempContainer} />
             <Route exact path="/login" component={LoginContainer} />
             <Route exact path="/register" component={RegisterContainer} />
             <Route exact path="/resetpassword" component={ResetPasswordContainer} />

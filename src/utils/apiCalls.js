@@ -1,18 +1,21 @@
 import axios from 'axios'
-import BaseURL from '../config'
+// import BaseURL from '../config'
+
+const BaseURL = 'https://nameless-lowlands-96458.herokuapp.com'
 
 const getHeaders = () => {
   const userId = localStorage.getItem('user_id') || ''
   return {
     'Content-Type': 'application/json',
-    user_id: userId,
+    'Accept': 'application/json',
+    // user_id: userId,
   }
 }
 
 export const getCall = (url, query = {}) => {
   const headers = getHeaders()
   return axios
-    .get(BaseURL + url, { params: query, headers })
+    .get(BaseURL + url)
     .then(response => response)
     .catch(error => {
       if (error.response && error.response.status === 401) {
@@ -24,8 +27,9 @@ export const getCall = (url, query = {}) => {
 
 export const postCall = (url, data = {}) => {
   const headers = getHeaders()
+  console.log('data', data);
   return axios
-    .post(BaseURL + url, data, { headers })
+    .post(BaseURL + url, {user: JSON.stringify(data)}, { headers })
     .then(response => response)
     .catch(error => {
       if (error.response && error.response.status === 401) {
