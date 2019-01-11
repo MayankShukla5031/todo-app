@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+// import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import { indigoA200 } from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -28,7 +28,7 @@ const muiTheme = getMuiTheme({
   },
 })
 
-injectTapEventPlugin()
+// injectTapEventPlugin()
 
 ReactDOM.render(
   <Provider store={store}>
