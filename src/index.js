@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+// import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import { indigoA200 } from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -15,6 +15,8 @@ import AppContainer from './containers/appContainer'
 import LoginContainer from './containers/loginContainer'
 import RegisterContainer from './containers/registerContainer'
 import ResetPasswordContainer from './containers/resetPasswordContainer'
+
+import TempContainer from './containers/TempContainer'
 
 import registerServiceWorker from './registerServiceWorker'
 import './css/index.css'
@@ -26,7 +28,7 @@ const muiTheme = getMuiTheme({
   },
 })
 
-injectTapEventPlugin()
+// injectTapEventPlugin()
 
 ReactDOM.render(
   <Provider store={store}>
@@ -34,6 +36,7 @@ ReactDOM.render(
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Switch>
+            <Route exact path="/temp" component={TempContainer} />
             <Route exact path="/login" component={LoginContainer} />
             <Route exact path="/register" component={RegisterContainer} />
             <Route exact path="/resetpassword" component={ResetPasswordContainer} />
